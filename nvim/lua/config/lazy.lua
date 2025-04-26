@@ -28,6 +28,6 @@ require("lazy").setup({
 		{ import = "plugins" },
 	},
 	-- Configure any other settings here. See the documentation for more details.
-	-- automatically check for plugin updates
+	-- Automatically check for plugin updates
 	checker = { enabled = true },
 })

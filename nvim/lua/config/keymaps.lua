@@ -37,6 +37,9 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 vim.keymap.set("n", "<leader>x", "", { desc = "Trouble" })
 vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble diagnostics" })
 vim.keymap.set("n", "<leader>xX", "<cmd>Trouble diagnostics filter.buf=0<cr>", { desc = "Trouble buffer diagnostics" })
+vim.keymap.set("n", "<leader>xX", "<cmd>Trouble diagnostics filter.buf=0<cr>", { desc = "Trouble buffer diagnostics" })
+vim.keymap.set("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Trouble location list" })
+vim.keymap.set("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Trouble quickfix list" })
 
 -- Git
 vim.keymap.set("n", "<leader>g", "", { desc = "Git" })
@@ -47,10 +50,19 @@ vim.keymap.set("n", "<leader>gd", "<cmd>Gitsigns diffthis<cr>", { desc = "Show d
 -- Code
 vim.keymap.set({ "n", "v" }, "<leader>c", "", { desc = "Code" })
 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
+vim.keymap.set({ "n", "v" }, "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+
+-- Neo-tree
+vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle file explorer" })
+vim.keymap.set("n", "<leader>'", "<cmd>Neotree document_symbols toggle<cr>", { desc = "Toggle symbols" })
+vim.keymap.set("n", "<leader>ge", "<cmd>Neotree git_status toggle<cr>", { desc = "Toggle git status" })
+
+-- Zen mode
+vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>", { desc = "Zen mode" })
 
 -- Better indenting
 vim.keymap.set("v", "<", "<gv", { remap = true })
-vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", ">", ">gv", { remap = true })
 
 -- Spell
 vim.keymap.set("n", "<leader>s", "", { desc = "Spell" })
@@ -61,4 +73,7 @@ vim.keymap.set("n", "<leader>sd", "<cmd>set nospell<cr>", { desc = "Turn off spe
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 
 -- Quit all
-vim.keymap.set("n", "<leader>q", "<cmd>qa<cr>", { desc = "Quit all" })
+vim.keymap.set("n", "<leader>q", function()
+  vim.cmd("Neotree close")
+  vim.cmd("qa")
+end, { desc = "Quit all" })
