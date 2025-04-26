@@ -1,0 +1,21 @@
+# Theme
+theme = catppuccin-mocha
+background = #0F0F17 
+
+# Window configurations
+window-decoration = none 
+
+# Keybindings
+# keybind = ctrl+\+l=resize_split:right,10
+
+keybind = ctrl+d>n=new_tab
+keybind = ctrl+shift+w=close_surface
+keybind = global:cmd+'=toggle_quick_terminal
+
+# Split keybindings
+keybind = ctrl+d>\=new_split:right
+keybind = ctrl+d>-=new_split:down
+keybind = ctrl+d>h=goto_split:left
+keybind = ctrl+d>k=goto_split:top
+keybind = ctrl+d>l=goto_split:right 
+keybind = ctrl+d>j=goto_split:bottom
